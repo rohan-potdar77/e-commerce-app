@@ -6,12 +6,13 @@ const verifyUser = async (req, res, next) => {
         
         if (!token)
             throw service.createError('Not authenticated: please login!', 401);
+        
         const decoded = await service.verifyToken(token);
 
         req.user = decoded.user;
         next();
     } catch (error) {
-        return next(error);
+        next(error);
     }
 };
 

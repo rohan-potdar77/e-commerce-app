@@ -20,7 +20,7 @@ const errorHandler = async (error, req, res, next) => {
         status = 400;
     }
 
-    return res.status(status).json({ success: false, message });
+    res.status(status).json({ success: false, message });
 };
 
 export default errorHandler;
