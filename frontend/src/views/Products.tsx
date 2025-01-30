@@ -32,10 +32,9 @@ interface ProductCardProps {
     product: Product;
 }
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme }) => ({
+const ExpandMore = styled((props: ExpandMoreProps) => (
+    <IconButton {...props} />
+))(({ theme }) => ({
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
@@ -199,7 +198,12 @@ const Products = () => {
                 );
             })
             .finally(() => dispatch(stopLoading()));
-    }, [dispatch]);
+    }, [
+        dispatch,
+        filter.categoryFilter.category,
+        filter.priceFilter.maxPrice,
+        filter.priceFilter.minPrice,
+    ]);
 
     return (
         <Grid2 container paddingY={2} rowGap={3}>

@@ -80,7 +80,7 @@ const CategoryFilter = () => {
                     value={category}
                     onChange={handleCategoryChange}
                 >
-                    {categories.map(category => (
+                    {categories?.map(category => (
                         <FormControlLabel
                             key={category}
                             value={category}

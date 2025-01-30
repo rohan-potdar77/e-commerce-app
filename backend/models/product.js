@@ -30,15 +30,8 @@ const productSchema = new Schema(
         totalQuantity: { type: Number, required: true, min: 0 },
         isAvailable: { type: Boolean, default: true },
 
-        // images: { type: [String], default: [] },
-        // videos: { type: [String], default: [] },
-
         specifications: { type: Object, default: {} },
         features: { type: [String], default: [] },
-
-        // averageRating: { type: Number, default: 0, min: 0, max: 5 },
-        // numberOfReviews: { type: Number, default: 0 },
-        // salesCount: { type: Number, default: 0 },
     },
     { timestamps: true }
 );
