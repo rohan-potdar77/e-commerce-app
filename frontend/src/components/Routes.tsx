@@ -13,33 +13,33 @@ const Cart = lazy(() => import('../views/Cart'));
 const Authenticate = lazy(() => import('../components/Authenticate'));
 
 const applicationRoutes: RouteObject[] = [
-    { path: '/', element: <Website /> },
-    { path: '/login', element: <Login /> },
-    { path: '/forgot-password', element: <ForgotPassword /> },
-    { path: '/reset-password', element: <ResetPassword /> },
-    {
-        path: '/user',
-        element: (
-            <Authenticate accessTo={APP_USERS.USER}>
-                <Layout />
-                <Outlet />
-            </Authenticate>
-        ),
-        children: [
-            { path: 'home', element: <Products /> },
-            { path: 'cart', element: <Cart /> },
-        ],
-    },
-    {
-        path: '/administrator',
-        element: (
-            <Authenticate accessTo={APP_USERS.ADMINISTRATOR}>
-                <Outlet />
-            </Authenticate>
-        ),
-        children: [{ path: 'home', element: <h4>Administrator Dashboard</h4> }],
-    },
-    { path: '*', element: <NotFound /> },
+	{ path: '/', element: <Website /> },
+	{ path: '/login', element: <Login /> },
+	{ path: '/forgot-password', element: <ForgotPassword /> },
+	{ path: '/reset-password', element: <ResetPassword /> },
+	{
+		path: '/user',
+		element: (
+			<Authenticate accessTo={APP_USERS.USER}>
+				<Layout />
+				<Outlet />
+			</Authenticate>
+		),
+		children: [
+			{ path: 'home', element: <Products /> },
+			{ path: 'cart', element: <Cart /> },
+		],
+	},
+	{
+		path: '/administrator',
+		element: (
+			<Authenticate accessTo={APP_USERS.ADMINISTRATOR}>
+				<Outlet />
+			</Authenticate>
+		),
+		children: [{ path: 'home', element: <h4>Administrator Dashboard</h4> }],
+	},
+	{ path: '*', element: <NotFound /> },
 ];
 
 const Routes = () => useRoutes(applicationRoutes);

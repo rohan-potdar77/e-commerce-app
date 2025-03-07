@@ -5,13 +5,13 @@ import { APP_USERS } from '../shared/constants';
 import Unauthorized from './Unauthorized';
 
 interface AuthenticationProps {
-    children: ReactNode;
-    accessTo: APP_USERS | null;
+	children: ReactNode;
+	accessTo: APP_USERS | null;
 }
 
 const Authenticate: FC<AuthenticationProps> = ({ children, accessTo }) => {
-    const userType = useSelector((state: RootState) => state.storage.userType);
-    return userType === accessTo ? <>{children}</> : <Unauthorized />;
+	const userType = useSelector((state: RootState) => state.storage.userType);
+	return userType === accessTo ? <>{children}</> : <Unauthorized />;
 };
 
 export default memo(Authenticate);

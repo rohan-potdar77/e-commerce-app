@@ -6,17 +6,17 @@ import Notification from './components/Notification';
 import Routes from './components/Routes';
 
 const App = () => {
-    return (
-        <BrowserRouter>
-            <ErrorBoundary>
-                <Suspense fallback={<Loader />}>
-                    <Routes />
-                    <Loader />
-                    <Notification />
-                </Suspense>
-            </ErrorBoundary>
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+			<ErrorBoundary>
+				<Suspense fallback={<Loader />}>
+					<Routes />
+					<Loader />
+					<Notification />
+				</Suspense>
+			</ErrorBoundary>
+		</BrowserRouter>
+	);
 };
 
 export default App;

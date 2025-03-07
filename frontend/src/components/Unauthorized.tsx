@@ -8,45 +8,45 @@ import { RootState } from '../redux/store';
 import { APP_USERS } from '../shared/constants';
 
 const Unauthorized = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-    const { userType, isValid } = useSelector(
-        (state: RootState) => state.storage
-    );
+	const { userType, isValid } = useSelector(
+		(state: RootState) => state.storage
+	);
 
-    const showBackButton = useMemo(
-        () =>
-            (userType === APP_USERS.ADMINISTRATOR ||
-                userType === APP_USERS.USER) &&
-            isValid,
-        [userType, isValid]
-    );
+	const showBackButton = useMemo(
+		() =>
+			(userType === APP_USERS.ADMINISTRATOR ||
+				userType === APP_USERS.USER) &&
+			isValid,
+		[userType, isValid]
+	);
 
-    useEffect(() => {
-        if (!showBackButton) {
-            dispatch(logoutReset());
-            dispatch(inValidateUser());
-            navigate('/login', { replace: true });
-        }
-    }, [showBackButton, dispatch, navigate]);
+	useEffect(() => {
+		if (!showBackButton) {
+			dispatch(logoutReset());
+			dispatch(inValidateUser());
+			navigate('/login', { replace: true });
+		}
+	}, [showBackButton, dispatch, navigate]);
 
-    return (
-        <Fragment>
-            <h2>You're not authorized to access this page!</h2>
-            {showBackButton && (
-                <MuiLink
-                    component="button"
-                    underline="hover"
-                    fontSize="1rem"
-                    onClick={() => navigate(-1)}
-                    style={{ display: 'block', textAlign: 'center' }}
-                >
-                    Back
-                </MuiLink>
-            )}
-        </Fragment>
-    );
+	return (
+		<Fragment>
+			<h2>You're not authorized to access this page!</h2>
+			{showBackButton && (
+				<MuiLink
+					component="button"
+					underline="hover"
+					fontSize="1rem"
+					onClick={() => navigate(-1)}
+					style={{ display: 'block', textAlign: 'center' }}
+				>
+					Back
+				</MuiLink>
+			)}
+		</Fragment>
+	);
 };
 
 export default Unauthorized;

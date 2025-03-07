@@ -5,17 +5,17 @@ import { useDispatch } from 'react-redux';
 import { toggleDrawer } from '../redux/slices/general';
 
 const FilterIcon = () => {
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-    const drawerToggler = () => {
-        dispatch(toggleDrawer());
-    };
+	const drawerToggler = () => {
+		dispatch(toggleDrawer());
+	};
 
-    return (
-        <IconButton size="medium" color="info" onClick={drawerToggler}>
-            <FilterAltIcon />
-        </IconButton>
-    );
+	return (
+		<IconButton size="medium" color="info" onClick={drawerToggler}>
+			<FilterAltIcon />
+		</IconButton>
+	);
 };
 
 export default memo(FilterIcon);

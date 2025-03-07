@@ -5,19 +5,19 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
 const StyledBackdrop = styled(Backdrop)(({ theme }) => ({
-    color: '#fff',
-    zIndex: theme.zIndex.drawer + 1,
+	color: '#fff',
+	zIndex: theme.zIndex.drawer + 1,
 }));
 
 const Loader = () => {
-    const isLoading = useSelector(
-        (state: RootState) => state.loading.isLoading
-    );
-    return (
-        <StyledBackdrop open={isLoading}>
-            <CircularProgress color="inherit" />
-        </StyledBackdrop>
-    );
+	const isLoading = useSelector(
+		(state: RootState) => state.loading.isLoading
+	);
+	return (
+		<StyledBackdrop open={isLoading}>
+			<CircularProgress color="inherit" />
+		</StyledBackdrop>
+	);
 };
 
 export default Loader;

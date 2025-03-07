@@ -10,28 +10,28 @@ import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
 
 const Drawer = () => {
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-    const general = useSelector((state: RootState) => state.general);
+	const general = useSelector((state: RootState) => state.general);
 
-    return (
-        <SwipeableDrawer
-            anchor={general.filterDrawerAnchor}
-            open={general.filterDrawerState}
-            onClose={() => dispatch(toggleDrawer())}
-            onOpen={() => dispatch(toggleDrawer())}
-        >
-            <List>
-                <ListItem sx={{ paddingY: 2, justifyContent: 'center' }}>
-                    <PriceFilter />
-                </ListItem>
-                <Divider />
-                <ListItem sx={{ paddingY: 2, justifyContent: 'center' }}>
-                    <CategoryFilter />
-                </ListItem>
-            </List>
-        </SwipeableDrawer>
-    );
+	return (
+		<SwipeableDrawer
+			anchor={general.filterDrawerAnchor}
+			open={general.filterDrawerState}
+			onClose={() => dispatch(toggleDrawer())}
+			onOpen={() => dispatch(toggleDrawer())}
+		>
+			<List>
+				<ListItem sx={{ paddingY: 2, justifyContent: 'center' }}>
+					<PriceFilter />
+				</ListItem>
+				<Divider />
+				<ListItem sx={{ paddingY: 2, justifyContent: 'center' }}>
+					<CategoryFilter />
+				</ListItem>
+			</List>
+		</SwipeableDrawer>
+	);
 };
 
 export default memo(Drawer);

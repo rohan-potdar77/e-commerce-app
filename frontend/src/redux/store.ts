@@ -8,25 +8,25 @@ import general from './slices/general';
 import filter from './slices/filter';
 
 const persistConfig: PersistConfig<RootState> = {
-  key: 'root',
-  storage: storageSession,
-  whitelist: ['storage', 'filter'],
+	key: 'root',
+	storage: storageSession,
+	whitelist: ['storage', 'filter'],
 };
 
 const rootReducer = combineReducers({
-  storage,
-  notification,
-  loading,
-  general,
-  filter
+	storage,
+	notification,
+	loading,
+	general,
+	filter,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }),
+	reducer: persistedReducer,
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export const persistor = persistStore(store);
